@@ -102,3 +102,10 @@ async def analyze_audio(
         for path in [input_path, output_path]:
             if path and os.path.exists(path):
                 os.remove(path)
+
+if __name__ == "__main__":
+    import os
+    import uvicorn
+
+    port = int(os.getenv("WEBSITES_PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
